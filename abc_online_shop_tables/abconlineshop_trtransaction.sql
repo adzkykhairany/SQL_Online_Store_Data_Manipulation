@@ -1,0 +1,58 @@
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: abconlineshop
+-- ------------------------------------------------------
+-- Server version	8.0.37
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `trtransaction`
+--
+
+DROP TABLE IF EXISTS `trtransaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `trtransaction` (
+  `IDTransaction` varchar(6) NOT NULL,
+  `IDProduct` int DEFAULT NULL,
+  `IDCustomer` int DEFAULT NULL,
+  `TransactionDate` datetime DEFAULT NULL,
+  `Qty` int DEFAULT NULL,
+  `TotalPrice` decimal(12,2) DEFAULT NULL,
+  `Done` tinyint(1) DEFAULT NULL,
+  `PaymentMethod` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`IDTransaction`),
+  CONSTRAINT `CheckTrans1` CHECK (regexp_like(`IDTransaction`,_utf8mb4'TR[0-9][0-9][0-9]'))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trtransaction`
+--
+
+LOCK TABLES `trtransaction` WRITE;
+/*!40000 ALTER TABLE `trtransaction` DISABLE KEYS */;
+INSERT INTO `trtransaction` VALUES ('TR001',1,1,'2018-03-12 12:23:01',2,98000.00,0,'Credit Card'),('TR002',2,2,'2018-05-01 07:21:01',1,39000.00,1,'Debit'),('TR003',3,3,'2018-02-23 20:45:56',1,12000.00,1,'Credit Card'),('TR004',4,4,'2018-09-15 17:38:59',1,56000.00,1,'Credit Card'),('TR005',5,5,'2018-08-05 10:11:01',2,105000.00,0,'Debit'),('TR006',6,1,'2018-01-23 12:23:31',1,5000000.00,0,'Debit'),('TR007',7,2,'2018-02-10 17:38:41',2,2000000.00,1,'Debit'),('TR008',8,3,'2018-03-22 20:23:17',3,1020000.00,0,'Debit'),('TR009',9,4,'2018-08-27 01:38:12',1,760000.00,1,'Credit Card'),('TR010',10,5,'2018-10-01 10:01:51',2,24000.00,0,'Debit'),('TR011',31,6,'2018-12-01 18:43:56',2,1080000.00,1,'Credit Card'),('TR012',32,7,'2018-11-25 07:26:41',5,2250000.00,0,'Debit'),('TR013',33,8,'2018-10-17 23:25:26',2,70000.00,0,'Debit'),('TR014',34,9,'2018-09-12 21:37:59',1,510000.00,1,'Credit Card'),('TR015',35,6,'2018-08-08 14:31:39',3,30000.00,0,'Debit'),('TR016',36,6,'2018-07-24 15:24:21',2,680000.00,1,'Credit Card'),('TR017',37,7,'2018-05-12 18:11:51',3,555000.00,1,'Debit'),('TR018',38,8,'2018-03-11 11:35:26',4,1520000.00,1,'Credit Card'),('TR019',39,9,'2018-01-29 19:37:19',2,120000.00,1,'Debit'),('TR020',40,7,'2018-11-30 23:18:23',1,280000.00,0,'Debit');
+/*!40000 ALTER TABLE `trtransaction` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-07 13:59:27

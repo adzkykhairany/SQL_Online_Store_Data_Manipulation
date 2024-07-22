@@ -1,0 +1,56 @@
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: abconlineshop
+-- ------------------------------------------------------
+-- Server version	8.0.37
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `msproduct`
+--
+
+DROP TABLE IF EXISTS `msproduct`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `msproduct` (
+  `IDProduct` int NOT NULL AUTO_INCREMENT,
+  `IDShop` char(7) DEFAULT NULL,
+  `ProductName` varchar(50) DEFAULT NULL,
+  `Stock` int DEFAULT NULL,
+  `Price` decimal(12,2) DEFAULT NULL,
+  PRIMARY KEY (`IDProduct`),
+  CONSTRAINT `CheckProduct1` CHECK (regexp_like(`IDShop`,_utf8mb4'SH[0-9][0-9][0-9][A-Z]')),
+  CONSTRAINT `CheckProduct2` CHECK ((`Stock` >= 0))
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `msproduct`
+--
+
+LOCK TABLES `msproduct` WRITE;
+/*!40000 ALTER TABLE `msproduct` DISABLE KEYS */;
+INSERT INTO `msproduct` VALUES (1,'SH145N','Fidget Spinner',110,49000.00),(2,'SH145N','Fidget Box',78,39000.00),(3,'SH145N','Slime',40,12000.00),(4,'SH145N','Lego',103,56000.00),(5,'SH145N','Gundam Master Grade',5,405000.00),(6,'SH223Y','Computer',5,5000000.00),(7,'SH223Y','VGA',26,1000000.00),(8,'SH223Y','Mouse',98,340000.00),(9,'SH223Y','Keyboard',63,760000.00),(10,'SH223Y','Earphone',120,120000.00),(11,'SH359Y','Soap',50,5000.00),(12,'SH359Y','Shampoo',45,21000.00),(13,'SH359Y','Tooth Brush',81,140000.00),(14,'SH359Y','Tooth Paste',20,21000.00),(15,'SH359Y','Hair Conditioner',30,58000.00),(16,'SH483N','Guitar',70,550000.00),(17,'SH483N','Violin',30,450000.00),(18,'SH483N','Piano',8,1250000.00),(19,'SH483N','Drum',5,2600000.00),(20,'SH483N','Flute',120,55000.00),(21,'SH592Y','Chair',25,800000.00),(22,'SH592Y','Table',14,975000.00),(23,'SH592Y','Cupboard',10,1300000.00),(24,'SH592Y','Trash Can',43,23000.00),(25,'SH592Y','Door',18,600000.00),(26,'SH673N','Book',30,5000.00),(27,'SH673N','Paper',100,1000.00),(28,'SH673N','Pen',20,3000.00),(29,'SH673N','Pencil',27,2500.00),(30,'SH673N','Eraser',25,7500.00),(31,'SH778N','Racket',15,540000.00),(32,'SH778N','Jersey',55,450000.00),(33,'SH778N','Headband',30,35000.00),(34,'SH778N','Shoes',7,510000.00),(35,'SH778N','Socks',12,10000.00),(36,'SH832N','T-Shirt',8,340000.00),(37,'SH832N','Shirt',15,185000.00),(38,'SH832N','Trousers',7,380000.00),(39,'SH832N','Tie',19,60000.00),(40,'SH832N','Jacket',5,280000.00),(41,'SH912Y','Plate',38,40000.00),(42,'SH912Y','Fork',60,4000.00),(43,'SH912Y','Spoon',54,4500.00),(44,'SH912Y','Bowl',25,34000.00),(45,'SH912Y','Chopsticks',56,4000.00),(46,'SH102Y','Doll',20,140000.00),(47,'SH102Y','Balloon',23,9000.00),(48,'SH102Y','Key Chain',50,12000.00),(49,'SH102Y','Hand Bouquet',35,89000.00),(50,'SH102Y','Pillow',43,67000.00);
+/*!40000 ALTER TABLE `msproduct` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-07 13:59:28
